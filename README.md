@@ -1,2 +1,2 @@
 # python-selenium-project
-Python ve selenium ile web yazılımlarının otomasyonuna dair youtube üzerinden 'testotomasyonmuhendisi' isimli kanalımaki derslerin kodlarını burada bulabilirsiniz
+ [**Youtube tutorials**](https://www.youtube.com/watch?v=MM10SYKfqwA&list=PLbFzTYWXNlJ4BrHcQ5dVhy9xhLtLg2Kcr&pp=iAQB)
