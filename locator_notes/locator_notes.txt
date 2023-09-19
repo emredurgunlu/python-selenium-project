@@ -1,0 +1,31 @@
+div#emre h5 id'si emre olan div'in içindeki h5'leri bul
+div#emre h5.yusuf id'si emre olan div'in içindeki class'ı yusuf'u İÇEREN h5'leri bul
+div#emre > h5 id'si emre olan div'in içindeki direkt child'ı h5 olanları bul (aksi halde çocuğunun cocuğu h5 olan h5 leri de bulur)
+div#emre, h5#yusuf bana divleri ver id'si emre olsun veya bana h5'leri ver id'si yusuf olsun.(virgül "veya" gücünü veriyor)
+div.emre:not(.yusuf) class'ı emre içeren fakat yusuf içermeyen divleri bul
+div.balina > :nth-child(1) class'ı balina olan divin ilk direkt child olan elementi bul
+div[test-id="emre"] test-id'si emre olan divleri bul(id, class gibi kendine özel bir attribute atayabilirsin)
+div[test-id^="www.emre"] test-id attributu www.emre ile başlasın
+div[test-id$="emre.com"] test-id attributu emre.com ile bitsin
+div[test-id*="emre.com"] test-id'sinin herhangi bir yerinde "emre" geçsin
+div[test-id="emre"][deploy-id="yusuf"] test-id'si emre ve deploy-id'si yusuf olan divler
+
+XPATH:
+//div[@class="emre"]  
+// herhangi bir elementi belirtir, cocuğunun cocuğu olabilir
+/ sadece direkt childlarda arar 
+//div[@class="emre"]//div[@class="yusuf"]/h2
+//div[@class="emre" and @id="yuusuf"]  
+//div[@class="emre" or @id="yuusuf"]  
+//span[text()="sipariş ver"]  taglerin dışında kalan normal görünen yazılarda arama yapar. bu özellik xpath'de var sadece
+//span[contains(text(),"sipariş ver")] yazıda arama yapar fakat örneğin "sipariş ver","sipariş verme" ikisini de seçer. Text içinde arama yapma sağlı sollu boşluklara duyarlıdır bu nedenle contains ile aratmak daha mantıklı 
+//span[not[contains(text(),"sipariş ver")]]
+//div[@class="emre" and not[@id="yusuf"]] class'ı emre olsun ve id'si yusuf olmasın
+//div[starts-with(@id,"emre")] id'si emre ile başlayan divleri bul  
+(//div[starts-with(@id,"emre")])[2] id'si emre ile başlayan divlerden 2.sini bulur fakat bunun gibi sıraya döre bulmak mantıklı değil gelecekte yeni bir element eklenirse sıra değişir
+//li/a[starts-with(@class,"zcm_link")] bu şekilde arattığımızda 6'lı bir grup olduğunu varsayalım. Örneğin bu gruptan sadece youtube'a kadar olanları almak istiyorsak:following(bundan öncekiler) ve preceding(bundan sonrakiler) kısmı dahil olmaz
+//li/a[starts-with(@class,"zcm_link")][following::a[@id="you_tube]]
+//li/a[starts-with(@class,"zcm_link")][preceding::a[@id="you_tube]]
+
+//label[text()="zeytin"]/preceding-sibling::Input içinde zeytin yazısı olan label'ın bir önceki kardeşlerinden input elementini bul
+//label[text()="zeytin"]/following-sibling::Input bu tarz kardeşten bulma, aranan elementin hiçbir belirleyici özelliği bulunmuyorsa tercih edilir
